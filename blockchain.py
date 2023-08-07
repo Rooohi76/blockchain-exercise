@@ -25,7 +25,7 @@ class Blockchain:
         if previous_hash is None:
             previous_hash = self.chain[-1]['Hash']
         temp_block = self.proof_of_work(data, previous_hash)
-        block = {'TimeStamp': str(datetime.now())}
+        block = {'TimeStamp': int(datetime.timestamp(datetime.now()))}
         block.update(temp_block)
         self.chain.append(block)
         return block
